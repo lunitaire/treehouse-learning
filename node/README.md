@@ -1,6 +1,6 @@
 #ReadMe for Node Projects
 
->The Four P's of Problem Solving
+>**The Four P's of Problem Solving**
 >
 >1. *Preparation* - where we understand the problem and think of a high level solution
 >2. *Plan* - where we plan out the solution
