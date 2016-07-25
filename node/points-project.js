@@ -1,7 +1,6 @@
 //Problem: We need a simple way to look at a user's badge count and Javascript points.
 //Solution: Use Node.js to connect to Treehouse's API to get profile information to print out.
 var https = require("https");
-var username = "atrianwagner";
 
 //Print out message
 function printMessage(username, badgeCount, points) {
@@ -14,40 +13,39 @@ function printError(error){
     console.error(error.message);
 }
 
-//Connect to the API URL. (https://teamtreehouse.com/username.json)
-
-var request = https.get("https://teamtreehouse.com/" + username + ".json", function(response){
-    //console.log(response.statusCode);
-    var body = "";
-    //Read the data.
-    response.on('data', function(chunk) {
-        body += chunk;
-    });
-    response.on('end', function(){
-        if (response.statusCode === 200) {
-            try {
-                var profile = JSON.parse(body);
-                printMessage(username, profile.badges.length, profile.points.JavaScript);
-            } catch(error) {
-                //Parse Error
-                printError(error);
+function getProfile(username){
+    //Connect to the API URL. (https://teamtreehouse.com/username.json)
+    var request = https.get("https://teamtreehouse.com/" + username + ".json", function(response){
+        //console.log(response.statusCode);
+        var body = "";
+        //Read the data.
+        response.on('data', function(chunk) {
+            body += chunk;
+        });
+        response.on('end', function(){
+            if (response.statusCode === 200) {
+                try {
+                    //Parse the data
+                    var profile = JSON.parse(body);
+                    //Print the data out.
+                    printMessage(username, profile.badges.length, profile.points.JavaScript);
+                } catch(error) {
+                    //Parse Error
+                    printError(error);
+                }
+            } else {
+                //Status Code Error
+                printError({
+                    message: "There was an error getting the profile for " + username + ". (" + response.statusCode + ")" 
+                });
             }
-        } else {
-            //Status Code Error
-            printError({
-                message: "There was an error getting the profile for " + username + ". (" + response.statusCode + ")" 
-            });
-        }
+        });
     });
+    //Connection Error
+    request.on("error", printError);
+}
 
-//Parse the data.
-//Print the data out.
-
-});
-
-
-//Connection Error
-request.on("error", printError);
+module.exports.get = getProfile;
 
 
 //Extras: jsonprettyprint.com
