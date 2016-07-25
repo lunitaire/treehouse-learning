@@ -1,9 +1,8 @@
 #ReadMe for Node Projects
 
->**The Four P's of Problem Solving**
->
->1. *Preparation* - where we understand the problem and think of a high level solution
->2. *Plan* - where we plan out the solution
->3. *Perform* - where we perform what's required in our proposed solution
->4. *Perfect* - where we perfect the solution
-
+####Projects
+Here is a list of my projects.
+* __hello-world__
+   * Beginner's node project.
+* __Display User Info__
+   * This project pulls a user's points and badges from Treehouse and displays their number of badges and JS points.
