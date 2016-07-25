@@ -19,15 +19,25 @@ function printError(error){
 var request = https.get("https://teamtreehouse.com/" + username + ".json", function(response){
     //console.log(response.statusCode);
     var body = "";
-
-//Read the data.
-
+    //Read the data.
     response.on('data', function(chunk) {
         body += chunk;
     });
     response.on('end', function(){
-        var profile = JSON.parse(body);
-        printMessage(username, profile.badges.length, profile.points.JavaScript);
+        if (response.statusCode === 200) {
+            try {
+                var profile = JSON.parse(body);
+                printMessage(username, profile.badges.length, profile.points.JavaScript);
+            } catch(error) {
+                //Parse Error
+                printError(error);
+            }
+        } else {
+            //Status Code Error
+            printError({
+                message: "There was an error getting the profile for " + username + ". (" + response.statusCode + ")" 
+            });
+        }
     });
 
 //Parse the data.
