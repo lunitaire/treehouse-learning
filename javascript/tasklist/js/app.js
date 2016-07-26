@@ -45,8 +45,11 @@ var addTask = function() {
     //Create a new list item with the text from #new-task:
     var listItem = createNewTaskElement(taskInput.value);
     //Append listItem to incompleteTasksHolder
+    //Use if to prevent adding empty tasks
     incompleteTasksHolder.appendChild(listItem);
     bindTaskEvents(listItem, taskCompleted);
+    //setting input to blank
+    taskInput.value = ""; 
 }
 
 //Edit an existing task
@@ -62,10 +65,13 @@ var editTask = function() {
 
     //if the class of the parent is .editMode
     if (containsClass) {
+        editButton.innerText = "Edit";
         //switch from .editMode
         //label text become the input's value
         label.innerText = editInput.value;
     } else {
+        //change editButton to Save while editing
+        editButton.innerText = "Save";
         //switch to .editMode
         //input value becomes the label's text
         editInput.value = label.innerText;
@@ -117,8 +123,16 @@ var bindTaskEvents(taskListItem, checkboxEventHandler) {
     checkbox.onchange = checkboxEventHandler;
 }
 
+//Test request for adding multiple events
+var sampleRequest = function() {
+    console.log("Test");
+}
+
 //Set the click handler to the addTask function
-addButton.onclick = addTask;
+addButton.addEventListener("click", addTask);
+addButton.addEventListener("click", sampleRequest);
+
+
 
 //cycle over incompleteTasksHolder ul list items
 for(var index = 0; index < incompleteTasksHolder.children.length; index++) {
