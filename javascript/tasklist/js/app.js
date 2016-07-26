@@ -9,18 +9,25 @@ var completedTasksHolder = document.getElementById("completed-task"); //complete
 //New Task List Item
 var createNewTaskElement = function(taskString){
 	//Create List Item
-	var listItem = ;
+	var listItem = document.createElement("li");
     //input (checkbox)
+    var checkbox = document.createElement("input");
     //label
+    var label = document.createElement("label");
     //input (checkbox)
+    var editInput = document.createElement("input");
     //button.edit
+    var editButton = document.createElement("button");
     //button.delete
-    //Each elements need to be modified and appended
+    var deleteButton = document.createElement("button");
+    //Each element needs modifying 
+
+    //Each element needs appending
     return listItem;
 }
 
 //Add a new task
-var addTask = function() {}
+var addTask = function() {
     console.log("Add Task");
     //Create a new list item with the text from #new-task:
     var listItem = createNewTaskElement("Some New Task");
