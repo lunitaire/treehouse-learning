@@ -29,6 +29,12 @@ Team Treehouse notes on Full Stack JavaScript Track
 * __Traversal__ - selecting an element based on the relationship with another element
 * __Events__ - listening to a specific event, like a mouse click or a key press, and having something execute in response
 
+##### Four ways that "this" takes a value
+* In normal function calls
+* Within methods on objects
+* Within an object that has been constructed
+* A function invoked with .call, .apple. or bind
+
 #### References
 * [Mozilla Developer Network Web API](https://developer.mozilla.org/en-US/docs/Web/Reference/API)
    * [MDN DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)
