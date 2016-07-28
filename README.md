@@ -2,5 +2,9 @@
 Team Treehouse Practice and Exercises
 
 #### Folder Structure
-* javascript
-   * node
+* JavaScript
+   * Node.js
+* Ruby 
+* PHP
+* Python
+* Java
