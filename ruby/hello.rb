@@ -1,17 +1,20 @@
 #Greeting the user.
 creator = "Atrian"
 
-print "Fair tidings!\nWho goes there? "
-name = gets.chomp
-
-def helloWorld
-  return "Hello #{name}!"
+def get_name()
+  print "Fair tidings!\nWho goes there? "
+  return name = gets.chomp
 end
 
-if (creator == name)
-  puts "Hello, Atrian!"
-  puts "Great to see you again!"
-else 
-  puts "Hello #{name}!"
-  puts "Nice to meet you!" 
+def helloWorld(name, creator)
+  if (name == creator)
+    puts "Hello, Atrian!"
+    puts "Great to see you again!"
+  else 
+    puts "Hello #{name}!"
+    puts "Nice to meet you!" 
+  end
 end
+
+name = get_name()
+helloWorld(name, creator)
