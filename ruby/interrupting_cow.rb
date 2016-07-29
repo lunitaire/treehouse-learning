@@ -9,6 +9,7 @@ loop do
   print phrases[numphrase]
   answer = gets.chomp.downcase
   if (answer == "moo") && (numphrase != 8)
+    print "LOL. \n"
     break
   elsif (answer == "moo") && (numphrase == 8)
     print "Poor timing. \n"
