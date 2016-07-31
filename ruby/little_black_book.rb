@@ -10,11 +10,7 @@ def ask (question, kind="string")
 end
 
 def add_contact
-  contact = {:name => "", :phone_numbers => []} #Fixed a typo in the declaration, also
-                                                #Ruby hashes should use symbols, not strings for keys
-                                                #Symbols are only stored once, conserving memory and increasing speed
-                                                #While strings must be stored continously. This also fixes the key as immutable
-                                                #or unchanging, which is obviously needed for hashes to behave reliably
+  contact = {:name => "", :phone_numbers => []} 
   contact[:name] = ask("What is the person's name?")
   answer = ""
   while answer != "n"
