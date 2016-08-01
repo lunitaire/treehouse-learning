@@ -5,6 +5,7 @@
 # * Custom map size
 # * Option to play again 
 # * Option to restart game
+# * Track where player has been 
 # * Option to choose whether to leave the dungeon
 # * Alternate version: Catch the monster
 
