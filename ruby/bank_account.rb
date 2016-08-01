@@ -21,10 +21,17 @@ class BankAccount
     @transactions.push(description: description, amount: amount)
   end
 
+  def balance
+    balance = 0
+    @transactions.each do |transaction|
+      balance +=transaction[:amount]
+    end
+    return balance
+  end
 end
 
 
 bank_account = BankAccount.new("Jason")
 bank_account.credit("Opening Deposit", 500)
 bank_account.debit("Groceries", 40)
-puts bank_account.inspect
+puts bank_account.balance
