@@ -1,4 +1,13 @@
 # Requires Python3
+
+# Other things to add to this:
+# * Move monster
+# * Custom map size
+# * Option to play again 
+# * Option to restart game
+# * Option to choose whether to leave the dungeon
+# * Alternate version: Catch the monster
+
 import random
 
 CELLS = [(0, 0), (0, 1), (0, 2),
