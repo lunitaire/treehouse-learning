@@ -16,7 +16,7 @@ class Character(Combat):
         return roll >4
 
     def get_weapon(self):
-        weapon_choice = input("Weapon ([S]word, [A]xe, [B]ow)").lower()
+        weapon_choice = input("Weapon ([S]word, [A]xe, [B]ow) ").lower()
 
         if weapon_choice in 'sab':
             if weapon_choice == 's':
