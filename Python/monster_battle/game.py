@@ -25,12 +25,22 @@ class Game:
         # monster turn
         def monster_turn(self):
             # Check to see if the monster attacks
-            # If so, tell the player
-                # Check if the player wants to dodge
-                # If so, see if the dodge is successful
-                    #If it is, move on
-                # If it's not, remove one player hit point
-            # If the monster isn't attacking, tell that to the player too
+            if self.monster.attack():
+                print("{} is attacking".format(self.monster))
+
+                if input("Dodge? Y/N ").lower() == 'y':
+                    if self.player.dodge():
+                        print("You dodged the attack!")
+                    else:
+                        print("You got hit anyway.")
+                        self.player.hit_points -= 1
+                else:
+                    print("{}. hit you for 1 point!".format(self.monster))
+                    # Should probably make a hit method
+                    self.player.hit_points - = 1
+            else:
+                # If the monster isn't attacking, tell that to the player too
+                print("{} isn't attacking this turn.".format(self.monster))
 
         # player turn
         def player_turn(self):
