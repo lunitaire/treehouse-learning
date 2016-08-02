@@ -45,16 +45,34 @@ class Game:
         # player turn
         def player_turn(self):
             # Let the player attack, rest, or quit
+            player_choice = input("[A]ttack, [R]est, [Q]uit? ").lower()
             # If they attack:
+            if player_choice == 'a':
+                print("You're attacking {}:".format(self.monster))
                 # See if the attack is successful
-                    # If so, see if the monster dodges
-                        # If dodged, print that
-                        # If not dodged, subtract the right num of hit points from the monster
-                    # If not a good attack, tell the player
-                # If they rest:
-                    # Call the player.rest() method
-                # If they quit, exit the game
-                # If they pick anything else, re-run this method
+                if self.player.attack():
+                    if self.monster.dodge():
+                        print("{} dodged your attack!".format(self.monster()))
+                    else:
+                        if self.player.leveled_up():
+                            self.monster.hit_points -= 2
+                        else:
+                            self.monster.hit_points - = 1
+
+                        print("You hit {} with your {}!".format(
+                            self.monster, self.player.weapon))
+                else:
+                    print("You missed!")
+            # If they rest:
+            elif player_choice == 'r':
+                # Call the player.rest() method
+                self.player.rest()
+            # If they quit, exit the game
+            elif player_choice == 'q'
+                sys.exit()
+            # If they pick anything else, re-run this method
+            else:
+                self.player_turn()
 
         # check to see if monster or player are dead
         def cleanup(self):
