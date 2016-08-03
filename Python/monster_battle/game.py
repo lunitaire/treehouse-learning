@@ -7,7 +7,7 @@ from monster import Troll
 
 
 class Game:
-    #setup step
+    # setup step
     def setup(self):
         self.player = Character()
         self.monsters = [
@@ -60,7 +60,8 @@ class Game:
                         self.monster.hit_points -= 2
                     else:
                         self.monster.hit_points -= 1
-                    print("You hit {} with your {}!".format(self.monster, self.player.weapon))
+                    print("You hit {} with your {}!".format(
+                          self.monster, self.player.weapon))
             else:
                 print("You missed!")
         # If they rest:
@@ -83,7 +84,6 @@ class Game:
             # get a new monster
             self.monster = self.get_next_monster()
 
-
     def __init__(self):
         self.setup()
 
@@ -104,7 +104,3 @@ class Game:
 
 
 Game()
-
-
-
-

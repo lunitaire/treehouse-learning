@@ -10,10 +10,10 @@ class Character(Combat):
     def attack(self):
         roll = random.randint(1, self.attack_limit)
         if self.weapon == 'sword':
-            roll +=1
+            roll += 1
         elif self.weapon == 'axe':
-            roll +=2
-        return roll >4
+            roll += 2
+        return roll > 4
 
     def get_weapon(self):
         weapon_choice = input("Weapon ([S]word, [A]xe, [B]ow) ").lower()
@@ -36,11 +36,13 @@ class Character(Combat):
             setattr(self, key, value)
 
     def __str__(self):
-        return '{}, HP: {}, XP: {}'.format(self.name, self.hit_points, self.experience)
+        return '{}, HP: {}, XP: {}'.format(self.name,
+                                           self.hit_points,
+                                           self.experience)
 
     def rest(self):
         if self.hit_points < self.base_hit_points:
-            self.hit_points +=1
+            self.hit_points += 1
 
     def leveled_up(self):
         return self.experience >= 5
