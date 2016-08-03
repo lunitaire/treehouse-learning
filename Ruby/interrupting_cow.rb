@@ -5,8 +5,12 @@ numphrase = 0
 print "Let's hear a joke! \n"
 print "You know how to stop me if you've heard this one before. \n"
 
-loop do 
-  print phrases[numphrase]
+def slow_print(string)
+  string.each_char { |c| print "#{c}"; sleep(1)}
+end
+
+loop do
+  slow_print(phrases[numphrase])
   answer = gets.chomp.downcase
   if (answer == "moo") && (numphrase != 8)
     print "LOL. \n"
