@@ -49,9 +49,22 @@ class TodoList
             return nil
         end
     end
+
+    def print_list
+        puts "#{name} List"
+        puts "-" * 30
+        todo_items.each do |todo_item|
+            puts todo_item
+
+        end
+        puts "\n"
+    end
 end
 
 todo_list = TodoList.new("Art Projects")
-todo_item = TodoItem.new("Oil Painting")
+todo_list.add_item("Oil Painting")
+todo_list.add_item("Thumbnails")
+todo_list.add_item("Figure Drawing Sketches")
 
-puts todo_item
+todo_list.print_list
+
