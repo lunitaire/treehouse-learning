@@ -16,3 +16,4 @@
    * [PEP 8](http://legacy.python.org/dev/peps/pep-0008/)
       * [PEP 8 Checker](http://pep8online.com/)
    * [PEP 20](http://legacy.python.org/dev/peps/pep-0020/)
+   * [PEP 257](http://legacy.python.org/dev/peps/pep-0257/)
