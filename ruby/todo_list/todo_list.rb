@@ -50,12 +50,18 @@ class TodoList
         end
     end
 
-    def print_list
+    def print_list(kind='all')
         puts "#{name} List"
         puts "-" * 30
         todo_items.each do |todo_item|
-            puts todo_item
-
+            case kind
+            when 'all'
+                puts todo_item
+            when 'complete'
+                puts todo_item if todo_item.complete?
+            when 'incomplete'
+                puts todo_item unless todo_item.complete?
+            end
         end
         puts "\n"
     end
@@ -64,7 +70,21 @@ end
 todo_list = TodoList.new("Art Projects")
 todo_list.add_item("Oil Painting")
 todo_list.add_item("Thumbnails")
+todo_list.add_item("Ink")
 todo_list.add_item("Figure Drawing Sketches")
+puts "\n"
+
+if todo_list.remove_item("Thumbnails")
+  puts "Thumbnails were removed from the list."
+end
+
+if todo_list.mark_complete("Ink")
+  puts "Ink was marked as complete."
+end
+puts "\n"
 
 todo_list.print_list
+
+todo_list.print_list('complete')
+todo_list.print_list('incomplete')
 
