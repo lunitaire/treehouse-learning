@@ -3,17 +3,17 @@
 # Other things to add to this:
 # * Move monster
 # * Custom map size
-# * Option to play again 
+# * Option to play again
 # * Option to restart game
-# * Track where player has been 
+# * Track where player has been
 # * Option to choose whether to leave the dungeon
 # * Alternate version: Catch the monster
 
 import random
 
 CELLS = [(0, 0), (0, 1), (0, 2),
-        (1, 0), (1, 1), (1, 2),
-        (2, 0), (2, 1), (2, 2)]
+         (1, 0), (1, 1), (1, 2),
+         (2, 0), (2, 1), (2, 2)]
 
 
 def get_locations():
@@ -34,16 +34,16 @@ def move_player(player, move):
 
     # If move is LEFT, y - 1
     if move == 'LEFT':
-        y -=1
+        y -= 1
     # If move is RIGHT, y + 1
     if move == 'RIGHT':
-        y +=1
+        y += 1
     # If move is UP, x - 1
     if move == 'UP':
-        x -=1
+        x -= 1
     # If move is DOWN, x + 1
     if move == 'DOWN':
-        x =1
+        x = 1
     return x, y
 
 
@@ -64,16 +64,17 @@ def get_moves(player):
         moves.remove('DOWN')
     return moves
 
+
 def draw_map(player):
     print(' _ _ _')
-    tile= '|{}'
+    tile = '|{}'
 
     for idx, cell in enumerate(CELLS):
         if idx in [0, 1, 3, 4, 6, 7]:
             if cell == player:
-                print(tile.format('X'), end = '')
+                print(tile.format('X'), end='')
             else:
-                print(tile.format('_'), end = '')
+                print(tile.format('_'), end='')
         else:
             if cell == player:
                 print(tile.format('X|'))
@@ -100,7 +101,7 @@ while True:
 
     if move == 'QUIT':
         break
-    
+
     # If it's a good move, change the player's position
     if move in moves:
         player = move_player(player, move)
