@@ -13,6 +13,24 @@ class TodoList
     end
 
     def remove_item(name)
+        if index = find_index(name)
+            todo_items.delete_at(index)
+            return true
+        else
+            return false
+        end
+    end
+
+    def mark_complete(name)
+        if index = find_index(name)
+            todo_items[index].mark_complete!
+            return true
+        else
+            return false
+        end
+    end
+
+    def find_index(name)
         index = 0
         found = false
         todo_items.each do |todo_item|
@@ -24,12 +42,11 @@ class TodoList
             else
                 index += 1
             end
-            if found
-                todo_items.delete_at(index)
-                return true
-            else
-                return false
-            end
+        end
+        if found
+            return index
+        else
+            return nil
         end
     end
 end
