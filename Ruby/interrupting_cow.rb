@@ -6,7 +6,8 @@ print "Let's hear a joke! \n"
 print "You know how to stop me if you've heard this one before. \n"
 
 def slow_print(string)
-  string.each_char { |c| print "#{c}"; sleep(1)}
+  string.each_char { |c| print "#{c}"; sleep(0.25)}
+  # Need to figure out a way to print all if any input happens when slow printing.
 end
 
 loop do
