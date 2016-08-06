@@ -65,5 +65,10 @@ class Contact
       first_lame
     end 
   end
+
+  def print_phone_numbers
+    puts "Phone Numbers"
+    phone_numbers.each{ |phone_number| puts phone_number}
+  end
 end
 
