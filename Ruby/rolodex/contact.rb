@@ -1,5 +1,17 @@
 class Contact
   attr_writer :first_name, :middle_name, :last_name
+  attr_reader :phone_numbers
+
+  def initialize
+    @phone_numbers = []
+  end
+
+  def add_phone_number(kind, number)
+    phone_number = PhoneNumber.new
+    phone_number.kind = kind
+    phone_number.number = number
+    phone_numbers.push(phone_number)
+  end
 
   def first_name
     @first_name
