@@ -13,6 +13,10 @@ class Contact
     @last_name
   end
 
+  def first_last
+    first_name + " " + last_name
+  end
+
   def last_first
     last_first = last_name
     last_first += ", "
@@ -32,6 +36,21 @@ class Contact
     full_name += " "
     full_name += last_name
     full_name
+  end
+
+  def to_s(format = 'full_name')
+    case format
+    when 'full_name'
+      full_name
+    when 'last_first'
+      last_first
+    when 'first'
+      first_name
+    when 'last'
+      last_name
+    else
+      first_lame
+    end 
   end
 end
 
