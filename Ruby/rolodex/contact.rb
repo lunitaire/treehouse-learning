@@ -52,6 +52,7 @@ class Contact
       last_first += " "
       last_first += middle_name.slice(0, 1)
       last_first += "."
+    end
   end
 
   def full_name
@@ -91,3 +92,13 @@ class Contact
   end
 end
 
+jason = Contact.new
+jason.first_name = "Jason"
+jason.last_name = "Seifer"
+jason.add_phone_number("Home", "123-456-7890")
+jason.add_phone_number("Work", "456-789-0123")
+jason.add_address("Home", "123 Main St.", "", "Portland", "OR", "12345")
+
+puts jason.to_s('full_name')
+jason.print_phone_numbers
+jason.print_addresses
