@@ -11,7 +11,7 @@ class Rolodex
     results = []
     search = name.downcase
     contacts.each do |contact|
-      if contact.first_name.downcase.include?(search)
+      if contact.full_name.downcase.include?(search)
         results.push(contact)
       end
     end
