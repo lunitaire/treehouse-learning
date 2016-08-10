@@ -7,6 +7,19 @@ class Rolodex
     @contacts = []
   end
 
+  def run
+    loop do
+      puts "Rolodex"
+      puts "e: Exit"
+      print "Enter your choice: "
+      input = gets.chomp.downcase
+      case input
+      when 'e'
+        break
+      end
+    end
+  end
+
   def print_results(search, results)
     puts search
     results.each do |contact|
@@ -63,24 +76,5 @@ class Rolodex
 end
 
 address_book = Rolodex.new
+address_book.run
 
-jason = Contact.new
-jason.first_name = "Jason"
-jason.last_name = "Seifer"
-jason.add_phone_number("Home", "123-456-7890")
-jason.add_phone_number("Work", "456-789-0123")
-jason.add_address("Home", "123 Main St.", "", "Portland", "OR", "12345")
-
-nick = Contact.new
-nick.first_name = "Nick"
-nick.last_name = "Pettit"
-nick.add_phone_number("Home", "222-222-2222")
-nick.add_address("Home", "222 Two Lane", "", "Portland", "OR", "12345")
-
-address_book.contacts.push(jason)
-address_book.contacts.push(nick)
-
-#address_book.print_contact_list
-#address_book.find_by_name("N")
-#address_book.find_by_phone_number("222")
-address_book.find_by_address("two")
