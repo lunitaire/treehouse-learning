@@ -10,14 +10,32 @@ class Rolodex
   def run
     loop do
       puts "Rolodex"
+      puts "a: Add Contact"
+      puts "p: Print Rolodex"
       puts "e: Exit"
       print "Enter your choice: "
       input = gets.chomp.downcase
       case input
+      when 'a'
+        add_contact
+      when 'p'
+        print_contact_list
+        puts "\n"
       when 'e'
         break
       end
     end
+  end
+
+  def add_contact
+    contact = Contact.new
+    print "First name: "
+    contact.first_name = gets.chomp
+    print "Middle name: "
+    contact.middle_name = gets.chomp
+    print "Last name: "
+    contact.last_name = gets.chomp
+    contacts.push(contact)
   end
 
   def print_results(search, results)
