@@ -20,4 +20,3 @@ end
 dog = Dog.new("Ruckus")
 dog.fetch("WiFi Hotspot")
 dog.fetch("red ball")
-
