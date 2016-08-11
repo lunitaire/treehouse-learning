@@ -96,6 +96,9 @@ class Rolodex
     contacts.push(contact)
   end
 
+# Remove contacts, phone numbers, addresses
+# Edit contacts, phone numbers, addresses
+
   def print_results(search, results)
     puts search
     results.each do |contact|
