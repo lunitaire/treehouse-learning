@@ -1,3 +1,5 @@
+include Comparable
+
 module LaserBots
     module Console
         class Command
@@ -6,9 +8,15 @@ module LaserBots
 
     module World
         class Player
-            attr_reader :name
-            def initialize(name)
+            attr_accessor :name, :score
+
+            def initialize(name, score)
                 @name = name
+                @score = name
+            end
+
+            def <=>(other_player)
+                score <=> other_player.score
             end
         end
 
@@ -25,5 +33,8 @@ module LaserBots
     end
 end
 
-player = LaserBots::World::Player.new("Jason")
-puts player.name
+player1 = LaserBots::World::Player.new("Jason", 100)
+player2 = LaserBots::World::Player.new("Deliah", 80)
+
+puts "player1 > player2: %s" % (player1 > player2)
+puts "player1 < player2: %s" % (player1 < player2)
