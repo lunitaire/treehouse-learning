@@ -20,19 +20,32 @@ module Inventoryable
             instances.each(&block)
         end
 
-        def in_stock_report
-            puts "#{self.to_s} In Stock Report"
-            reportable = instances.select{ |instance| instance.in_stock? }
-            reportable.each do |item|
+        def report(title, items)
+            puts title
+            puts "-" *50
+            items.each do |item|
                 line = []
-                line.push("Item #{item.attributes[:name]}")
+                line.push("Item: #{item.attributes[:name]}")
                 line.push("Stock: #{item.stock_count}")
                 if item.attributes.include?(:size)
                     line.push("Size: #{item.attributes[:size]}")
                 end
                 puts line.join("\t")
             end
+            puts "-" *50
             puts "\n"
+        end
+
+        def in_stock_report
+            title = "#{self.to_s} In Stock Report"
+            reportable = instances.select{ |instance| instance.in_stock? }
+            report(title, reportable)
+        end
+
+        def out_of_stock_report
+            title = "#{self.to_s} Out of Stock Report"
+            reportable = instances.select{ |instance| !instance.in_stock? }
+            report(title, reportable)
         end
     end
 
@@ -49,49 +62,59 @@ module Inventoryable
     end
 end
 
-class Shirt
-    include Inventoryable
-    attr_accessor :attributes
+module Treehouse
+    class Shirt
+        include Inventoryable
+        attr_accessor :attributes
 
-    def initialize(attributes)
-        @attributes = attributes
+        def initialize(attributes)
+            @attributes = attributes
+        end
+    end
+
+    class Pants
+        include Inventoryable
+        attr_accessor :attributes
+
+        def initialize(attributes)
+            @attributes = attributes
+        end
+    end
+
+    class Accessory
+        include Inventoryable
+        attr_accessor :attributes
+
+        def initialize(attributes)
+            @attributes = attributes
+        end
     end
 end
 
-class Pants
-    include Inventoryable
-    attr_accessor :attributes
-
-    def initialize(attributes)
-        @attributes = attributes
-    end
-end
-
-class Accessory
-    include Inventoryable
-    attr_accessor :attributes
-
-    def initialize(attributes)
-        @attributes = attributes
-    end
-end
-
-shirt1 = Shirt.create(name: "MTF", size: "L")
+shirt1 = Treehouse::Shirt.create(name: "MTF", size: "L")
 shirt1.stock_count = 10
 
-shirt2 = Shirt.create(name: "MTF", size: "M")
+shirt2 = Treehouse::Shirt.create(name: "MTF", size: "M")
 shirt2.stock_count = 4
 
-shirt1 = Pants.create(name: "Frog Joggers", size: "XL")
+shirt2 = Treehouse::Shirt.create(name: "MTF", size: "S")
+shirt2.stock_count = 0
+
+shirt1 = Treehouse::Pants.create(name: "Frog Joggers", size: "XL")
 shirt1.stock_count = 8
 
-shirt2 = Pants.create(name: "Frog Joggers", size: "M")
+shirt2 = Treehouse::Pants.create(name: "Frog Joggers", size: "M")
 shirt2.stock_count = 6
 
-shirt1 = Accessory.create(name: "Bracelet", size: "L")
+shirt1 = Treehouse::Accessory.create(name: "Bracelet", size: "L")
 shirt1.stock_count = 1
 
-shirt2 = Accessory.create(name: "Belt", size: "S")
+shirt2 = Treehouse::Accessory.create(name: "Belt", size: "S")
 shirt2.stock_count = 3
 
-Shirt.in_stock_report
+Treehouse::Shirt.in_stock_report
+Treehouse::Shirt.out_of_stock_report
+Treehouse::Pants.in_stock_report
+Treehouse::Pants.out_of_stock_report
+Treehouse::Accessory.in_stock_report
+Treehouse::Accessory.out_of_stock_report
