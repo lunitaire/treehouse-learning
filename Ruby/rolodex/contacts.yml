@@ -1,0 +1,17 @@
+---
+- !ruby/object:Contact
+  phone_numbers:
+  - !ruby/object:PhoneNumber
+    kind: Home
+    number: 123-123-1234
+  addresses:
+  - !ruby/object:Address
+    kind: Home
+    street_1: 1313 Pumpkin Ln
+    street_2: APT G
+    city: Pumpkintown
+    state: Georgia
+    postal_code: '30067'
+  first_name: Atrian
+  middle_name: M
+  last_name: Wagner
