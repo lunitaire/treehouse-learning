@@ -63,32 +63,26 @@ module Inventoryable
 end
 
 module Treehouse
-    class Shirt
+    Shirt = Struct.new(:attributes) do
         include Inventoryable
-        attr_accessor :attributes
-
-        def initialize(attributes)
-            @attributes = attributes
-        end
     end
 
-    class Pants
+    Pants = Struct.new(:attributes) do
         include Inventoryable
-        attr_accessor :attributes
-
-        def initialize(attributes)
-            @attributes = attributes
-        end
     end
 
-    class Accessory
+    Accessory = Struct.new(:attributes) do
         include Inventoryable
-        attr_accessor :attributes
-
-        def initialize(attributes)
-            @attributes = attributes
-        end
     end
+
+#    class Accessory
+#        include Inventoryable
+#        attr_accessor :attributes
+#
+#        def initialize(attributes)
+#            @attributes = attributes
+#        end
+#    end
 end
 
 shirt1 = Treehouse::Shirt.create(name: "MTF", size: "L")
