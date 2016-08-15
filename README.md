@@ -1,5 +1,5 @@
 # treehouse-learning
-Team Treehouse Practice and Exercises
+Team Treehouse Practice and Exercises  
 [Treehouse Profile](https://teamtreehouse.com/atrianwagner) - contains all badges and points
 
 #### Completed Treehouse Development Tracks
