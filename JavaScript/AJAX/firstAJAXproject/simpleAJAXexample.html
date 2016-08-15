@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <link href='//fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="css/main.css">
-    <title>AJAX with JavaScript</title>
-    <script>
-        var xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4){
-                document.getElementById('ajax').innerHTML = xhr.responseText;
-            }
-        };
-        xhr.open('GET', 'sidebar.html');
-        xhr.send();
-    </script>
+  <meta charset="utf-8">
+  <link href='//fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/main.css">
+  <title>AJAX with JavaScript</title>
+  <script>
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4) {
+        document.getElementById('ajax').innerHTML = xhr.responseText;
+      }
+    };
+    xhr.open('GET', 'sidebar.html');
+    xhr.send();
+  </script>
 </head>
 <body>
   <div class="grid-container centered">
@@ -24,9 +24,9 @@
           <div class="heading">
             <h1>CAW CAW MEOWRUCKERS.</h1>
           </div>
-          <ul id="ajax">
+          <div id="ajax">
             <p> Meow. </p>
-          </ul>
+          </div>
         </div>
       </div>
     </div>
