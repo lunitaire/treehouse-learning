@@ -35,6 +35,9 @@ This folder will contain my JS specific projects from Treehouse.
 * Within an object that has been constructed
 * A function invoked with .call, .apple. or bind
 
+##### Object-Oriented JavaScript
+* Method - A function on an object
+
 #### References
 * [Mozilla Developer Network Web API](https://developer.mozilla.org/en-US/docs/Web/Reference/API)
    * [MDN DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)
