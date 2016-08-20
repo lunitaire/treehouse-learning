@@ -11,8 +11,6 @@ All of the work I did for the Ruby Development Track is uploaded into this repos
 
 #### Subject Folder Structure
 READMEs within subject folders will list all projects related to the subject.
-* C&#35;
-* Java
 * JavaScript
    * AJAX
    * Node.js
