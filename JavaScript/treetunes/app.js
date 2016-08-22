@@ -16,8 +16,14 @@ var song0000013 = new Song("Frontier Psychiatrist", "The Avalanches", "4:20");
 
 //var song000000_ = new Song(" ", " ", ":");
 
+var spoken0000001 = new SpokenWord("How To Be Alone", "Tanya Davis", "4:35", "Poem");
+var spoken0000002 = new SpokenWord("The American'T Dream (The Purse Suit of Happyness)", "Suli Breaks", "6:45", "Spoken Word");
+//var spoken000000_ = new SpokenWord(" ", " ", " ", ":");
+
 playlist.add(song0000001);
 playlist.add(song0000002);
+playlist.add(spoken0000001);
+playlist.add(spoken0000002);
 // Treehouse project named variables after song name and added them one by one. 
 // I have named the variables in a pattern and will later create a for statement to add all of them in.
 
