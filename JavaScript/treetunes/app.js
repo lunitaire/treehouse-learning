@@ -20,3 +20,8 @@ playlist.add(song0000001);
 playlist.add(song0000002);
 // Treehouse project named variables after song name and added them one by one. 
 // I have named the variables in a pattern and will later create a for statement to add all of them in.
+
+
+var playlistElement = document.getElementById("playlist");
+
+playlist.renderInElement(playlistElement);
