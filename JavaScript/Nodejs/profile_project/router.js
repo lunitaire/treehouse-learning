@@ -28,20 +28,24 @@ function user(request, response){
 
             // Store the values which we need
             var values = {
-                avatarUrl: ...,
-                username: ...,
-                badges: ...,
-                javaScript: ... 
+                avatarUrl: profileJSON.gravatar_url,
+                username: profileJSON.profile_name,
+                badges: profileJSON.badges.length,
+                javaScript: profileJSON.points.JavaScript 
             }
+            // simple response
+            response.write(values.username + " has " + values.badges + " badges \n");
+            response.end('Footer\n');
         });
 
         // on "error"
         studentProfile.on("error", function(error){
             //show error
+            response.write(error.message + "\n");
+            response.end('Footer\n');
         });
 
-        response.write(username + "\n");
-        response.end('Footer\n');
+        
             
     }
 }
