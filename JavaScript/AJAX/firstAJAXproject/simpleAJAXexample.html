@@ -14,9 +14,9 @@
     };
     xhr.open('GET', 'sidebar.html');
     function sendAJAX() {
-      xhr.send(); 
+      xhr.send();
       document.getElementById('load').style.display = "none";
-    }
+    };
   </script>
 </head>
 <body>
@@ -26,9 +26,10 @@
         <div class="grid-100">
           <div class="heading">
             <h1>CAW CAW MEOWRUCKERS.</h1>
+            <button id = "load" onclick="sendAJAX()">Bring it!</button>
           </div>
           <div id="ajax">
-            
+
           </div>
         </div>
       </div>
