@@ -9,7 +9,15 @@
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
       if (xhr.readyState === 4) {
-        document.getElementById('ajax').innerHTML = xhr.responseText;
+        if (xhr.status == 200){
+          document.getElementById('ajax').innerHTML = xhr.responseText;
+        } else if (xhr.status == 404){
+          // file not found
+        } else if (xhr.status == 500){
+          // server had a problem
+        } else {
+          alert(xhr.statusText)
+        }
       }
     };
     xhr.open('GET', 'sidebar.html');
@@ -25,7 +33,7 @@
       <div class="contained">
         <div class="grid-100">
           <div class="heading">
-            <h1>CAW CAW MEOWRUCKERS.</h1>
+            <h1>AJAX fun.</h1>
             <button id = "load" onclick="sendAJAX()">Bring it!</button>
           </div>
           <div id="ajax">
