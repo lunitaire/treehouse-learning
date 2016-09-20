@@ -18,3 +18,25 @@ xhr.onreadystatechange = function () {
 };
 xhr.open('GET', 'data/employees.json');
 xhr.send();
+
+
+var xhroom = new XMLHttpRequest();
+xhroom.onreadystatechange = function () {
+  if(xhroom.readyState===4){
+    var room = JSON.parse(xhroom.responseText);
+    var statusHTML = '<ul class="rooms">';
+    for (var i=0; i< room.length; i += 1){
+      if (room[i].available === true ) {
+        statusHTML += '<li class="empty">';
+      } else {
+        statusHTML += '<li class="full">';
+      }
+      statusHTML += room[i].room;
+      statusHTML += '</li>';
+    }
+    statusHTML += '</ul>';
+    document.getElementById('roomList').innerHTML = statusHTML;
+  }
+};
+xhroom.open('GET', 'data/rooms.json');
+xhroom.send();
