@@ -2,6 +2,10 @@
 phrases = ["Knock. ","Knock. \n","Who's ","there? \n", "Interrupting ", "cow. \n", "Interrupting ", "cow ", "who? \n"]
 numphrase = 0
 
+# add in start screen functionality.
+# allow start, instructions, and exit.
+# at end of joke loop go back to start screen.
+
 print "Let's hear a joke! \n"
 print "You know how to stop me if you've heard this one before. \n"
 
